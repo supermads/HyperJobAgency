@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from menu.views import HomeView
+from resume.views import ResumeView
+from vacancy.views import VacancyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view())
+    path('', HomeView.as_view()),
+    path('resumes/', ResumeView.as_view()),
+    path('vacancies/', VacancyView.as_view())
 ]
