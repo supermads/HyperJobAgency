@@ -18,10 +18,18 @@ from django.urls import include, path
 from menu.views import HomeView
 from resume.views import ResumeView
 from vacancy.views import VacancyView
+from signup.views import MySignUpView
+from login.views import MyLoginView
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view()),
     path('resumes/', ResumeView.as_view()),
-    path('vacancies/', VacancyView.as_view())
+    path('vacancies/', VacancyView.as_view()),
+    path('login/', RedirectView.as_view(url='/login')),
+    path('signup/', RedirectView.as_view(url='/signup')),
+    path('login', MyLoginView.as_view()),
+    path('signup', MySignUpView.as_view())
 ]
