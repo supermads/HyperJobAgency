@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'vacancy',
     'menu',
     'signup',
-    'login'
+    'login',
+    'home'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+{% if is_staff %}
+    <form action="/vacancies/new" method="post"> {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% else %}
+    <form action="/resumes/new" method="post"> {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+{% for resume in resumes %}
+    <div> {{resume.author}}: {{resume.description}} </div>
+{% endfor %}
+{% for vacancy in vacancies %}
+    <div> {{vacancy.author}}: {{vacancy.description}} </div>
+{% endfor %}
+</body>
+</html>
